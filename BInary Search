@@ -41,7 +41,7 @@ class Main {
 
         Arrays.sort(arr);
 
-        int result = binarysearch(arr, key);
+        int result = binarysearch(arr, key);   //observe how array is passed in a function
 
         if (result == -1) {
             System.out.println("The key was not found in the array.");
@@ -49,6 +49,5 @@ class Main {
             System.out.println("The key was found at index: " + result);
         }
 
-        obj.close();
     }
 }
