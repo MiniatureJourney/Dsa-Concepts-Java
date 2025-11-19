@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=yCxV0kBpA6M
+
 import java.util.Arrays;
 
 class InsertionSort
@@ -7,7 +9,8 @@ class InsertionSort
         int i, j, temp;
         for(i = 1; i < arr.length; i++)
         {
-            temp = arr[i];
+            temp = arr[i];                             //think it like sorted:elementtobecompared:unsorted
+                                                       //arr[i]==elementtobecompared
             j = i - 1;
 
             while(j >= 0 && arr[j] > temp)
@@ -15,7 +18,7 @@ class InsertionSort
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
-            arr[j + 1] = temp;
+            arr[j + 1] = temp;                         //arr[j+1]==elementtobecompared
         }
         System.out.println(Arrays.toString(arr));
     }
