@@ -1,0 +1,156 @@
+import java.util.*;
+public class LinkL{
+    Node head;
+    private int size;
+
+    class Node{
+        int data;
+        Node next;
+
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+
+    public void addfirst(int data){
+        Node newnode=new Node(data);
+        size++;
+        if (head==null){
+            head=newnode;
+            return;
+        }
+        newnode.next=head;
+        head=newnode;
+    }
+
+    public void addlast(int data){
+        Node newnode=new Node(data);
+        size++;
+        if (head==null){
+            head=newnode;
+            return;
+        }
+
+        Node cur=head;
+        while (cur.next!=null){
+            cur=cur.next;
+        }
+        cur.next=newnode;
+    }
+
+    public void deletefirst(){
+        if (head==null){
+            System.out.println("LIst is E?NC");
+            return;
+        }
+        size--;
+        if (head.next==null){
+            head=null;
+        }
+
+
+        head=head.next;
+
+    }
+    public void deletelast(){
+        if (head==null){
+            System.out.println("LIst is E?NC");
+            return;
+        }
+        size--;
+        if (head.next==null){
+            head=null;
+        }
+
+        Node SL=head;
+        Node Last=head.next;
+        while(Last.next!=null){
+            SL=SL.next;
+            Last=Last.next;
+        }
+        SL.next=null;
+
+    }
+
+
+    public int printsize(){
+        return size;
+    }
+
+    public void revit(){
+        if (head==null || head.next==null){
+            return;
+        }
+
+        Node prev=head;
+        Node cur=head.next;
+        while(cur!=null){
+            Node next=cur.next;
+            cur.next=prev;
+
+            prev=cur;
+            cur=next;
+        }
+
+        head.next=null;
+        head=prev;
+    
+    }
+
+    public Node revrec(Node head){
+        if (head==null || head.next==null){
+            return head;
+        }
+        Node newhead=revrec(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newhead;
+    }
+
+    public void printlist(){
+         if (head==null){
+            System.out.println("LIst is E?NC/NO");
+            return;
+        }
+        Node cur=head;
+        while (cur!=null){
+            System.out.print(cur.data+"->");
+            cur=cur.next;
+        }
+        System.out.print("NULL");
+        System.out.println("");
+    }
+
+    public static void main(String[] args){
+        LinkL list=new LinkL();
+        list.addfirst(10);
+        list.addfirst(20);
+        list.addfirst(30);
+        System.out.println(list.printsize());
+        list.printlist();
+        list.addlast(100);
+        list.addlast(200);
+        list.addlast(300);
+        System.out.println(list.printsize());
+        list.printlist();
+        // list.deletefirst();
+        // System.out.println(list.printsize());
+        // list.printlist();
+        // list.deletelast();
+        // System.out.println(list.printsize());
+        // list.printlist();
+        list.revit();
+        //System.out.println(list.printsize());
+        list.printlist();
+
+        list.head=list.revrec(list.head);
+        list.printlist();
+
+
+
+
+    }
+
+
+}
