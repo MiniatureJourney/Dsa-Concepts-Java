@@ -1,11 +1,12 @@
-
+https://youtu.be/o4bAoo_gFBU?si=HC9iGC6od_CBvcUV
 https://www.w3resource.com/w3r_images/bubble-short.png
 
 
 
 
-public class BubbleSortExample {
+import java.util.Arrays;
 
+public class Main {
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -23,12 +24,11 @@ public class BubbleSortExample {
         int[] arr = {60, 10, 40, 30, 20, 50};
 
         System.out.println("Original array:");
-        for (int num : arr) System.out.print(num + " ");
-        System.out.println();
+        System.out.println(Arrays.toString(arr));
 
         bubbleSort(arr);
 
         System.out.println("Sorted array:");
-        for (int num : arr) System.out.print(num + " ");
+        System.out.println(Arrays.toString(arr));
     }
 }
