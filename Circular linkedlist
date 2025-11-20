@@ -27,8 +27,9 @@ public class CIRLL{
     }
 
     //addlast
-    public void addlast(int data){
-        Node newnode=new Node(data);
+    public void addlast(int data){            //you cannot add from tail in doubly LL but you can add in Circular LL but you cant delete from 
+                                              last in circular like you can do in doubly
+        Node newnode=new Node(data);          // in ciruclar we are traversing using tail instead of head
         if (tail==null){
             head=tail=newnode;
             tail.next=head;
